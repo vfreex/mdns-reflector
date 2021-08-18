@@ -1,0 +1,16 @@
+Source: mdns-reflector
+Section: net
+Priority: optional
+Maintainer: Yuxiang Zhu <me@yux.im>
+Homepage: https://github.com/vfreex/mdns-reflector
+Build-Depends: cmake, build-essential, debhelper (>= 9)
+
+Package: mdns-reflector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: lightweight and performant multicast DNS (mDNS) reflector
+ mDNS Reflector (mdns-reflector) is a lightweight and performant multicast DNS (mDNS) reflector with a modern design.
+ It reflects mDNS queries and responses among multiple LANs, which allows you to run untrusted IoT devices
+ in a separate LAN but those devices can still be discovered in other LANs.
+ .
+ Supports zone based reflection and IPv6.

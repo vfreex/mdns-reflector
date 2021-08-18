@@ -1,9 +1,15 @@
 # mDNS Reflector
 
-mDNS Reflector (mdns-reflector) is a lightweight and performant multicast DNS (mDNS) reflector with modern design.
+mDNS Reflector (mdns-reflector) is a lightweight and performant multicast DNS (mDNS) reflector with a modern design.
 It reflects mDNS queries and responses among multiple LANs, which allows you to run untrusted IoT devices
-in a separate LAN but can still be discovered by other LANs.
-Supports zone based reflection and IPv6.
+in a separate LAN but those devices can still be discovered in other LANs.
+
+## Highlights
+- Low footprint, no dynamic memory allocation during reflecting
+- Rootless - can be run as either root or non-root
+- Supports zone based reflection
+- Supports both IPv4 and IPv6
+- Leverages epoll on Linux and kqueue on BSD and macOS
 
 It provides a command line interface (CLI) familiar to the discontinued [mdns-repeater][].
 
