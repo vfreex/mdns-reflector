@@ -24,7 +24,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
-#include <netinet/ip.h>
+#include <netinet/in.h>
 #include <net/if.h>
 
 int mcast_join(int fd, const struct sockaddr_storage *sa, socklen_t sa_len, uint32_t ifindex) {

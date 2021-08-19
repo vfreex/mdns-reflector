@@ -30,7 +30,7 @@
 #include <fcntl.h>
 #include <sys/socket.h>
 #include <sys/ioctl.h>
-#include <netinet/ip.h>
+#include <netinet/in.h>
 #include <arpa/inet.h>
 #include <signal.h>
 
@@ -90,10 +90,17 @@ int new_recv_socket(const struct sockaddr_storage *sa, socklen_t sa_len, uint32_
                 log_err(LOG_ERR, "IPv4 socket");
                 return -1;
             }
+#if defined(IP_PKTINFO)
             if (setsockopt(fd, IPPROTO_IP, IP_PKTINFO, &ON, sizeof(ON)) == -1) {
                 log_err(LOG_ERR, "IPv4 setsockopt IP_PKTINFO");
                 goto cleanup;
             }
+#elif defined(IP_RECVDSTADDR)
+            if (setsockopt(fd, IPPROTO_IP, IP_RECVDSTADDR, &ON, sizeof(ON)) == -1) {
+                log_err(LOG_ERR, "IPv4 setsockopt IP_RECVDSTADDR");
+                goto cleanup;
+            }
+#endif
 #if defined(SO_BINDTODEVICE)
             {
                 struct ifreq ifr;
