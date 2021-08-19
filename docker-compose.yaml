@@ -5,5 +5,6 @@ services:
       context: .
       dockerfile: Dockerfile
     image: docker.io/yuxzhu/mdns-reflector:latest
-    command: mdns-reflector -fnl info -- ens18 ens19
+    command: mdns-reflector -fnl info -- eth0 eth1
     network_mode: host
+    restart: unless-stopped
