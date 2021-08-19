@@ -1,0 +1,9 @@
+version: "2.2"
+services:
+  mdns-reflector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker.io/yuxzhu/mdns-reflector:latest
+    command: mdns-reflector -fnl info -- ens18 ens19
+    network_mode: host
