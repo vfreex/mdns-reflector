@@ -13,6 +13,64 @@ in a separate LAN but those devices can still be discovered in other LANs.
 
 It provides a command line interface (CLI) familiar to the discontinued [mdns-repeater][].
 
+## Installation
+### Install from Binary
+#### Docker
+```sh
+docker pull yuxzhu/mdns-reflector:latest
+```
+#### Podman
+```sh
+podman pull yuxzhu/mdns-reflector:latest
+```
+#### Fedora / CentOS 8 / CentOS Stream 8
+```sh
+dnf copr enable -y yux/networking
+dnf install -y mdns-reflector
+```
+#### CentOS 7
+```sh
+curl -fLo /etc/yum.repos.d/yux-networking-epel-7.repo  https://copr.fedorainfracloud.org/coprs/yux/networking/repo/epel-7/yux-networking-epel-7.repo
+yum install -y mdns-reflector
+```
+#### Debian / Ubuntu
+Coming soon.
+
+#### OpenWRT
+Coming soon.
+
+### Install from Source
+```sh
+git clone https://github.com/vfreex/mdns-reflector
+cd mdns-reflector && mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=release ..
+make install
+```
+
+## Usage
+
+`mdns-reflector` is easy to use. Just run the following command on a multi-homed host:
+
+```sh
+mdns-reflector -f eth0 eth1
+```
+
+where `eth0` and `eth1` are the interfaces that you want to reflect mDNS for.
+
+Run `mdns-reflector -h` for help.
+
+Similarly, run with Docker in the foreground:
+
+```sh
+docker run --net=host yuxzhu/mdns-reflector:latest -f eth0 eth1
+```
+
+Or run with Docker as a daemon:
+
+```sh
+docker run -d --restart=always --net=host yuxzhu/mdns-reflector:latest -f eth0 eth1
+```
+
 ## License
 Copyright (C) 2021 Yuxiang Zhu <me@yux.im>
 
