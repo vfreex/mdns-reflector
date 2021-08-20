@@ -1,0 +1,3 @@
+#!/bin/sh
+set -e
+setcap cap_net_raw+ep /usr/bin/mdns-reflector

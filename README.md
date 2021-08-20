@@ -52,7 +52,7 @@ make install
 `mdns-reflector` is easy to use. Just run the following command on a multi-homed host:
 
 ```sh
-mdns-reflector -f eth0 eth1
+mdns-reflector -fn eth0 eth1
 ```
 
 where `eth0` and `eth1` are the interfaces that you want to reflect mDNS for.
@@ -62,13 +62,13 @@ Run `mdns-reflector -h` for help.
 Similarly, run with Docker in the foreground:
 
 ```sh
-docker run --net=host yuxzhu/mdns-reflector:latest -f eth0 eth1
+docker run --net=host yuxzhu/mdns-reflector:latest -fn eth0 eth1
 ```
 
 Or run with Docker as a daemon:
 
 ```sh
-docker run -d --restart=always --net=host yuxzhu/mdns-reflector:latest -f eth0 eth1
+docker run -d --restart=always --net=host yuxzhu/mdns-reflector:latest -fn eth0 eth1
 ```
 
 ## License
