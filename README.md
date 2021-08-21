@@ -62,13 +62,13 @@ Run `mdns-reflector -h` for help.
 Similarly, run with Docker in the foreground:
 
 ```sh
-docker run --net=host yuxzhu/mdns-reflector:latest -fn eth0 eth1
+docker run --net=host yuxzhu/mdns-reflector:latest mdns-reflector -fn eth0 eth1
 ```
 
 Or run with Docker as a daemon:
 
 ```sh
-docker run -d --restart=always --net=host yuxzhu/mdns-reflector:latest -fn eth0 eth1
+docker run -d --restart=always --net=host yuxzhu/mdns-reflector:latest mdns-reflector -fn eth0 eth1
 ```
 
 ## License
