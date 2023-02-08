@@ -7,6 +7,7 @@ After=network-online.target
 Type=simple
 EnvironmentFile=-/etc/sysconfig/mdns-reflector
 EnvironmentFile=-/etc/default/mdns-reflector
+EnvironmentFile=-/etc/default/mdns-reflector.d/*
 ExecStart=/usr/bin/mdns-reflector -fnl $LOGGING_LEVEL $DAEMON_ARGS $INTERFACES
 User=nobody
 Restart=on-failure
