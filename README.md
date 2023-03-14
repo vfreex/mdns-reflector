@@ -34,8 +34,13 @@ curl -fLo /etc/yum.repos.d/yux-networking-epel-7.repo  https://copr.fedorainfrac
 yum install -y mdns-reflector
 ```
 #### Debian / Ubuntu
-Coming soon.
+Available in Debian 'experimental' branch:
+ - https://packages.debian.org/experimental/mdns-reflector
 
+It can happen that the version in experimental is outdated.
+In that case experienced users can either build the .deb package themselves
+ - by using this the Debian Salsa repo: https://salsa.debian.org/debian-edu-pkg-team/mdns-reflector
+ - by using the included debian/ folder.
 #### OpenWRT
 Coming soon.
 
