@@ -1,0 +1,17 @@
+[Unit]
+Description=Multicast DNS (mDNS) reflector (%I.conf)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/mdns-reflector/mdns-reflector.conf
+EnvironmentFile=-/etc/mdns-reflector/conf.d/*
+# Note the missing '-' below. We want to enforce loading this configuration file.
+EnvironmentFile=/etc/mdns-reflector/%I.conf
+ExecStart=/usr/bin/mdns-reflector -fnl $LOGGING_LEVEL $DAEMON_ARGS $INTERFACES
+User=nobody
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
