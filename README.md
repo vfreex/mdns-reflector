@@ -4,6 +4,7 @@ mDNS Reflector (mdns-reflector) is a lightweight and performant multicast DNS (m
 It reflects mDNS queries and responses among multiple LANs, which allows you to run untrusted IoT devices
 in a separate LAN but those devices can still be discovered in other LANs.
 
+
 ## Highlights
 - Low footprint, no dynamic memory allocation during reflecting
 - Rootless - can be run as either root or non-root
@@ -13,27 +14,28 @@ in a separate LAN but those devices can still be discovered in other LANs.
 
 It provides a command line interface (CLI) familiar to the discontinued [mdns-repeater][].
 
-## Installation
-### Install from Binary
-#### Docker
+----
+
+## Installation of mDNS Reflector using prebuilt binaries
+### Docker
 ```sh
 docker pull yuxzhu/mdns-reflector:latest
 ```
-#### Podman
+### Podman
 ```sh
 podman pull yuxzhu/mdns-reflector:latest
 ```
-#### Fedora / CentOS 8 / CentOS Stream 8
+### Fedora / CentOS 8 / CentOS Stream 8
 ```sh
 dnf copr enable -y yux/networking
 dnf install -y mdns-reflector
 ```
-#### CentOS 7
+### CentOS 7
 ```sh
 curl -fLo /etc/yum.repos.d/yux-networking-epel-7.repo  https://copr.fedorainfracloud.org/coprs/yux/networking/repo/epel-7/yux-networking-epel-7.repo
 yum install -y mdns-reflector
 ```
-#### Debian / Ubuntu
+### Debian / Ubuntu
 Available in Debian 'experimental' branch:
  - https://packages.debian.org/experimental/mdns-reflector
 
@@ -41,16 +43,20 @@ It can happen that the version in experimental is outdated.
 In that case experienced users can either build the .deb package themselves
  - by using this the Debian Salsa repo: https://salsa.debian.org/debian-edu-pkg-team/mdns-reflector
  - by using the included debian/ folder.
-#### OpenWRT
+### OpenWRT
 Coming soon.
 
-### Install from Source
+----
+
+## Installing mDNS Reflector from Source
 ```sh
 git clone https://github.com/vfreex/mdns-reflector
 cd mdns-reflector && mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=release ..
 make install
 ```
+
+----
 
 ## Usage
 
@@ -75,6 +81,7 @@ Or run with Docker as a daemon:
 ```sh
 docker run -d --restart=always --net=host yuxzhu/mdns-reflector:latest mdns-reflector -fn eth0 eth1
 ```
+----
 
 ## Systemd service
 
