@@ -105,6 +105,7 @@ systemctl enable --now mdns-reflector@$(systemd-escape "%i")
 ```
 
 **NOTE:** Replace `%i` with your config filename *without* the `.conf` at the end.
+The `.conf` filename suffix is still necessary though.
 
 ### Important information about multiple services running in parallel
 Let us define a few networks to make an example frame `<iface_name>: <network_name>`:
@@ -154,8 +155,10 @@ makes all services from devices withing the `Homenetwork` visible to the
 Services within the `Smarthome-Devices` network **won't** be announced to the
 `Printers` network and vice-versa.
 
+----
+
 ## License
-Copyright (C) 2021 Yuxiang Zhu <me@yux.im>
+Copyright (C) 2021-2023 Yuxiang Zhu <me@yux.im>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
