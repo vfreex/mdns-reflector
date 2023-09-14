@@ -104,7 +104,7 @@ the settings in file `20_example.conf` would overwrite settings from `10_example
 ## Multiple systemd services
 
 mDNS Reflector supports multiple services running in parallel.
-You can archieve this by creating files like `/etc/mdns-reflector/%i.conf`.
+You can achieve this by creating files like `/etc/mdns-reflector/%i.conf`.
 
 Now enable the systemd service with this specific config file:
 ```sh
@@ -139,13 +139,13 @@ So, for this example you'll need two config files.
 
 `/etc/mdns-reflector/smarthomestuff.conf`:
 ```
-INTERFACES=eth_home eth_smart
+INTERFACES="eth_home eth_smart"
 More stuff...
 ```
 
 `/etc/mdns-reflector/printerstuff.conf`:
 ```
-INTERFACES=eth_home eth_print
+INTERFACES="eth_home eth_print"
 More stuff...
 ```
 
@@ -156,7 +156,7 @@ systemctl enable --now mdns-reflector@$(systemd-escape "printerstuff")
 ```
 
 This would make all mDNS services visible in `Homenetwork`. But beware this also
-makes all services from devices withing the `Homenetwork` visible to the
+makes all services from devices within the `Homenetwork` visible to the
 `Smarthome-Devices` and `Printers` networks.
 
 Services within the `Smarthome-Devices` network **won't** be announced to the
